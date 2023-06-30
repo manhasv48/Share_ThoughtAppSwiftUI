@@ -16,7 +16,7 @@ struct ContentView: View {
                 TabView(selection: $selectedTab) {
                     ThoughtsViewUI()
                         .tag(0)
-                    ProfileVIewUi()
+                    EditProfile()
                         .tag(1)
                 }
                 ZStack{

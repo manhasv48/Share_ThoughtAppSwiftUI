@@ -13,7 +13,7 @@ enum TabbedItems: Int, CaseIterable{
     var title: String{
         switch self {
         case .home:
-            return "Thoughts"
+            return "Home"
         case .profile:
             return "Profile"
         }
@@ -22,7 +22,7 @@ enum TabbedItems: Int, CaseIterable{
     var iconName: String{
         switch self {
         case .home:
-            return "home_Icon"
+            return "icons8-home"
         case .profile:
             return "profile_icon"
         }
