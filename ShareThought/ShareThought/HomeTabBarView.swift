@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct ContentView: View {
+struct HomeTabBarView: View {
     @State var selectedTab = 0
         
         var body: some View {
@@ -31,14 +31,14 @@ struct ContentView: View {
                     }
                     .padding(6)
                 }
-                .frame(height: 70)
-                .background(.purple.opacity(0.2))
-                .cornerRadius(35)
+                .frame(height: 50)
+                .background(.blue.opacity(0.2))
+                .cornerRadius(10)
                 .padding(.horizontal, 26)
             }
         }
 }
-extension ContentView{
+extension HomeTabBarView{
     func CustomTabItem(imageName: String, title: String, isActive: Bool) -> some View{
         HStack(spacing: 10){
             Spacer()
@@ -54,14 +54,14 @@ extension ContentView{
             }
             Spacer()
         }
-        .frame(width: isActive ? .infinity : 60, height: 60)
-        .background(isActive ? .purple.opacity(0.4) : .clear)
-        .cornerRadius(30)
+        .frame(width: isActive ? .infinity : 100, height: 50)
+        .background(isActive ? .blue.opacity(0.4) : .clear)
+        .cornerRadius(10)
     }
 }
 
-struct ContentView_Previews: PreviewProvider {
+struct HomeTabBarView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        HomeTabBarView()
     }
 }

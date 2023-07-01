@@ -4,11 +4,15 @@
 //
 //  Created by Vishal M on 25/06/23.
 //
+
 import SwiftUI
 
 struct ThoughtsViewUI: View {
     @State private var dummyData: DummyData?
     @State private var isDarkMode = false
+    @State private var showAlert: Bool = false
+    @State private var shouldNavigateToLogout = false
+    
     var body: some View {
         NavigationView {
             Group {
@@ -19,12 +23,13 @@ struct ThoughtsViewUI: View {
                             let imageName = dummyData.image[index]
                             let name = dummyData.names[index]
                             ThoughtCell(dummyText: thoughtText, imageName: imageName, name: name, textColor: isDarkMode)
-                                .padding(.vertical,16)
-                               
+                                .padding(.vertical, 16)
                         }
                         .contentShape(Rectangle()) // Set the cell's content shape
-                        .onTapGesture { } // Di
-                        .listRowInsets(EdgeInsets())// Remove the padding and trailing spacing
+                        .onTapGesture {
+                            // Handle cell tap here
+                        }
+                        .listRowInsets(EdgeInsets()) // Remove the padding and trailing spacing
                         .listRowSeparatorTint(.clear)
                     }
                     .listStyle(PlainListStyle()) // Remove the grouping style
@@ -36,21 +41,35 @@ struct ThoughtsViewUI: View {
             .navigationBarItems(
                 leading: HStack {
                     Button(action: {
-                        // Left side button action
-                        // Implement logout functionality here
+                        self.showAlert = true
                     }) {
                         Image(systemName: "square.and.arrow.up.circle")
                             .imageScale(.large)
                             .foregroundColor(isDarkMode ? .white : .black)
                     }
+                    .alert(isPresented: $showAlert) {
+                        Alert(
+                            title: Text("Confirm Logout"),
+                            message: Text("Are you sure you want to log out?"),
+                            primaryButton: .default(Text("Yes"), action: {
+                                shouldNavigateToLogout = true
+                            }),
+                            secondaryButton: .cancel(Text("No"))
+                        )
+                    }
+                    .background(
+                        NavigationLink(destination: LogInLogOutScreenView(), isActive: $shouldNavigateToLogout) {
+                            EmptyView()
+                        }
+                    )
                 },
                 trailing: HStack {
                     Button(action: {
                         isDarkMode.toggle()
                     }) {
-                        Image(systemName: "sun.max.fill" )
+                        Image(systemName: isDarkMode ? "sun.max.fill" : "moon.fill")
                             .foregroundColor(isDarkMode ? .white : .black)
-                                                   .imageScale(.large)
+                            .imageScale(.large)
                     }
                 }
             )

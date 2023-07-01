@@ -11,7 +11,7 @@ import SwiftUI
 struct ShareThoughtApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            HomeTabBarView()
         }
     }
 }
