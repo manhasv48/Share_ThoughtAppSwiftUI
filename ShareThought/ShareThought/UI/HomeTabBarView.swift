@@ -16,8 +16,11 @@ struct HomeTabBarView: View {
                 TabView(selection: $selectedTab) {
                     ThoughtsViewUI()
                         .tag(0)
-                    EditProfile()
+                    CreateNoteView()
                         .tag(1)
+                    EditProfile()
+                        .tag(2)
+                    
                 }
                 ZStack{
                     HStack{
