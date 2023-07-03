@@ -74,7 +74,7 @@
 			isa = PBXGroup;
 			children = (
 				CA86EC402A48A5D20088A5D0 /* ShareThoughtApp.swift */,
-				CADF61662A514FD700FF94A0 /* UI */,
+				CADF61662A514FD700FF94A0 /* UI Views */,
 				CA8935362A4E85FE00D6124D /* Data Model */,
 				CACD253A2A52BB8B00C52931 /* Model */,
 				CADF61652A514F7200FF94A0 /* Resources */,
@@ -111,14 +111,14 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
-		CADF61662A514FD700FF94A0 /* UI */ = {
+		CADF61662A514FD700FF94A0 /* UI Views */ = {
 			isa = PBXGroup;
 			children = (
 				CA86EC422A48A5D20088A5D0 /* HomeTabBarView.swift */,
 				CADF61672A51500100FF94A0 /* Screens */,
 				CADF61682A51506900FF94A0 /* Components */,
 			);
-			path = UI;
+			path = "UI Views";
 			sourceTree = "<group>";
 		};
 		CADF61672A51500100FF94A0 /* Screens */ = {
