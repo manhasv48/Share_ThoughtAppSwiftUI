@@ -7,8 +7,6 @@
 
 import SwiftUI
 
-import SwiftUI
-
 class ThoughtsViewModel: ObservableObject {
     @Published var dummyData: DummyData?
     @Published var isDarkMode = false

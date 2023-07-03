@@ -19,6 +19,8 @@
 		CA8935402A4EA49100D6124D /* JsonFile.json in Resources */ = {isa = PBXBuildFile; fileRef = CA89353F2A4EA49100D6124D /* JsonFile.json */; };
 		CA8935422A4EFACB00D6124D /* LogInLogOutScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA8935412A4EFACB00D6124D /* LogInLogOutScreenView.swift */; };
 		CACD253C2A52BBE300C52931 /* ThoughtsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CACD253B2A52BBE300C52931 /* ThoughtsViewModel.swift */; };
+		CACD253E2A52C74400C52931 /* CreateNoteViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CACD253D2A52C74400C52931 /* CreateNoteViewModel.swift */; };
+		CACD25402A52C77B00C52931 /* Note.swift in Sources */ = {isa = PBXBuildFile; fileRef = CACD253F2A52C77B00C52931 /* Note.swift */; };
 		CADF616A2A5150FC00FF94A0 /* ThoughtsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CADF61692A5150FC00FF94A0 /* ThoughtsCell.swift */; };
 /* End PBXBuildFile section */
 
@@ -36,6 +38,8 @@
 		CA89353F2A4EA49100D6124D /* JsonFile.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = JsonFile.json; sourceTree = "<group>"; };
 		CA8935412A4EFACB00D6124D /* LogInLogOutScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInLogOutScreenView.swift; sourceTree = "<group>"; };
 		CACD253B2A52BBE300C52931 /* ThoughtsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThoughtsViewModel.swift; sourceTree = "<group>"; };
+		CACD253D2A52C74400C52931 /* CreateNoteViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateNoteViewModel.swift; sourceTree = "<group>"; };
+		CACD253F2A52C77B00C52931 /* Note.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Note.swift; sourceTree = "<group>"; };
 		CADF61692A5150FC00FF94A0 /* ThoughtsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThoughtsCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -83,6 +87,7 @@
 			children = (
 				CA86EC522A48A7740088A5D0 /* Enums.swift */,
 				CACD253B2A52BBE300C52931 /* ThoughtsViewModel.swift */,
+				CACD253D2A52C74400C52931 /* CreateNoteViewModel.swift */,
 			);
 			path = "Data Model";
 			sourceTree = "<group>";
@@ -91,6 +96,7 @@
 			isa = PBXGroup;
 			children = (
 				CA8935372A4E862E00D6124D /* DummyData.swift */,
+				CACD253F2A52C77B00C52931 /* Note.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -215,6 +221,8 @@
 				CA8935422A4EFACB00D6124D /* LogInLogOutScreenView.swift in Sources */,
 				CA89353D2A4EA42C00D6124D /* ThoughtsViewUI.swift in Sources */,
 				CA86EC412A48A5D20088A5D0 /* ShareThoughtApp.swift in Sources */,
+				CACD253E2A52C74400C52931 /* CreateNoteViewModel.swift in Sources */,
+				CACD25402A52C77B00C52931 /* Note.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
