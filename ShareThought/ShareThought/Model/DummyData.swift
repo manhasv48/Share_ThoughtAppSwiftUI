@@ -6,16 +6,16 @@
 //
 
 import Foundation
-
-class DummyData: Codable {
+struct DummyData: Codable, Identifiable {
+    let id: [String] 
     let dummyData: [String]
     let image: [String]
     let names: [String]
     
-    init(dummyData: [String], image: [String], names: [String]) {
+    init(id: [String], dummyData: [String], image: [String], names: [String]) {
+        self.id = id
         self.dummyData = dummyData
         self.image = image
         self.names = names
     }
 }
-

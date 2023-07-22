@@ -14,7 +14,7 @@ struct ThoughtsViewUI: View {
     var body: some View {
         NavigationView {
             Group {
-                if let dummyData = viewModel.dummyData, dummyData.dummyData.count == dummyData.image.count && dummyData.dummyData.count == dummyData.names.count {
+                if let dummyData = viewModel.dummyData, dummyData.dummyData.count == dummyData.image.count && dummyData.dummyData.count == dummyData.names.count && dummyData.dummyData.count == dummyData.id.count{
                     List {
                         ForEach(dummyData.dummyData.indices, id: \.self) { index in
                             let thoughtText = dummyData.dummyData[index]

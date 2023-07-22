@@ -13,7 +13,6 @@ class CreateNoteViewModel: ObservableObject {
     @Published var date = Date()
     func saveNote() {
         let newNote = Note(title: title, content: content, date: date)
-      
     }
 }
 
