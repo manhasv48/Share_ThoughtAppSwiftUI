@@ -14,12 +14,20 @@ struct NoteCell: View {
     
     var body: some View {
         VStack {
-            Text(titleText)
-            Text("\(dateText)")
+            
+            VStack{
+                HStack{
+                    Text(titleText)
+                    Spacer()
+                }
+                HStack{
+                    Text("\(dateText.formatted(date: .abbreviated, time: .shortened))")
+                    Spacer()
+                }
+            }
         }
     }
 }
-
 struct NoteCell_Previews: PreviewProvider {
     static var previews: some View {
         NoteCell(titleText: .constant("Sample Title"), dateText: .constant(Date()))

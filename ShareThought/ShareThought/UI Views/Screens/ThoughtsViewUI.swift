@@ -32,7 +32,7 @@ struct ThoughtsViewUI: View {
                     }
                     .listStyle(PlainListStyle()) // Remove the grouping style
                 } else {
-                    Text("Error: Data count mismatch")
+                    ErrorView(viewModel:ThoughtsViewModel())
                 }
             }
             .navigationBarTitle("Thoughts")

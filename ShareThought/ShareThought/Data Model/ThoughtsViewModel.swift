@@ -12,23 +12,29 @@ class ThoughtsViewModel: ObservableObject {
     @Published var isDarkMode = false
     @Published var showAlert = false
     @Published var shouldNavigateToLogout = false
+    
+    @Published var isLoading: Bool = false
+    @Published var errorMessage: String? = nil
 
     init() {
         loadData()
     }
 
     func loadData() {
+        isLoading = true
         guard let url = Bundle.main.url(forResource: "JsonFile", withExtension: "json") else {
-            print("Json file not found")
+           errorMessage  = "file not found"
             return
         }
         
         do {
+            
             let data = try Data(contentsOf: url)
             let users = try JSONDecoder().decode(DummyData.self, from: data)
             self.dummyData = users
+            isLoading = false
         } catch {
-            print("Error decoding JSON: \(error)")
+            errorMessage = APIError.badURL.localizedDescription
         }
     }
 
