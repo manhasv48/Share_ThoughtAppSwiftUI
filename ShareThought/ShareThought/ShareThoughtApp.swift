@@ -11,12 +11,14 @@ import SwiftUI
 struct ShareThoughtApp: App {
     @State private var showlaunchview:Bool = true
     var body: some Scene {
-            WindowGroup {
-                ZStack{
+        WindowGroup {
+            ZStack{
                 NavigationView{
-                    HomeTabBarView()
-                        .navigationBarHidden(true)
+                    LogInLogOutScreenView()
                 }
+                .navigationBarBackButtonHidden()
+                .navigationBarHidden(true)
+                  
                     ZStack{
                         if showlaunchview{
                             LaunchView(showLaunchview: $showlaunchview)

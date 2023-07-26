@@ -10,8 +10,8 @@ import SwiftUI
 struct HomeTabBarView: View {
     @State var selectedTab = 0
         
-        var body: some View {
-            
+    var body: some View {
+        NavigationView{
             ZStack(alignment: .bottom){
                 TabView(selection: $selectedTab) {
                     ThoughtsViewUI()
@@ -39,7 +39,9 @@ struct HomeTabBarView: View {
                 .cornerRadius(10)
                 .padding(.horizontal, 26)
             }
-        }
+        }.navigationBarBackButtonHidden()
+            .navigationBarHidden(true)
+    }
 }
 extension HomeTabBarView{
     func CustomTabItem(imageName: String, title: String, isActive: Bool) -> some View{

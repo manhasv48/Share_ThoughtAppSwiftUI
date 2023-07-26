@@ -6,78 +6,100 @@
 //
 
 import SwiftUI
-import UIKit
+
 struct LogInLogOutScreenView: View {
     @State private var username: String = ""
     @State private var password: String = ""
     @State private var naviGateDashBoard = false
+    @State private var hasAttemptedLogin = false
+
+
+    var isEmailValid: Bool {
+        !username.isEmpty && username.isValidEmail()
+    }
     
-    var body: some View {
-        NavigationView {
-                Group {
-                    VStack {
-                        Spacer()
-                        
-                        VStack(alignment: .leading, spacing: 12) {
-                            TextField("username or number", text: $username)
-                                .font(.system(size: 15, weight: .thin))
-                                .foregroundColor(.primary)
-                                .frame(height: 44)
-                                .background(Color.white)
-                                .cornerRadius(4.0)
-                            
-                            SecureField("password", text: $password)
-                                .font(.system(size: 15, weight: .thin))
-                                .foregroundColor(.primary)
-                                .frame(height: 44)
-                                .background(Color.white)
-                                .cornerRadius(4.0)
-                            
-                            Button("Login", action: {
-                                naviGateDashBoard = true
-                            })
-                            .foregroundColor(.white)
-                            .font(.headline)
-                            .buttonBorderShape(.capsule)
-                            .frame(height: 44)
-                            .frame(maxWidth: .infinity)
-                            .padding(.horizontal, 16)
-                            .background(Color.blue)
-                            .cornerRadius(4.0)
-                            
-                            Button("Forgotten Password ?", action: {
-                                
-                            })
-                            .foregroundColor(.blue)
-                            .font(.footnote)
-                            .frame(maxWidth: .infinity)
-                        }
-                        
-                        Spacer()
-                        
-                        NavigationLink(destination: HomeTabBarView(), isActive: $naviGateDashBoard) {
-                            EmptyView()
-                        }
-                        
-                        Button("Create new account", action: {
-                            
-                        })
-                        .foregroundColor(.blue)
-                        .font(.caption2)
-                        .buttonBorderShape(.capsule)
-                        .frame(height: 44)
-                        .frame(maxWidth: .infinity)
-                        .padding(.horizontal, 16)
-                        .background(Color.gray.opacity(0.3))
-                    }
-                    .padding()
-                    .background(Color.secondary.opacity(0.1))
-                }
-                .navigationBarHidden(true)
-            }
-        }
+    var isPasswordValid: Bool {
+        !password.isEmpty && password.isPasswordValid()
+    }
+    
+    var isLoginButtonDisabled: Bool {
+        !isEmailValid || !isPasswordValid
     }
 
+    var body: some View {
+        NavigationView {
+            Group {
+                VStack {
+                    Spacer()
+                    
+                    VStack(alignment: .leading, spacing: 12) {
+                        HStack {
+                            Image(systemName: "person.circle")
+                            TextField("Email or Name", text: $username)
+                                .foregroundColor(.black)
+                            Image(systemName: isEmailValid ? "checkmark.circle.fill" : "xmark.circle.fill")
+                                .foregroundColor(isEmailValid ? .green : .red)
+                                .opacity(username.isEmpty ? 0 : 1) // Hide image when the field is empty
+                        }
+                        .padding()
+                        .overlay(RoundedRectangle(cornerRadius: 10).stroke(lineWidth: 2).foregroundColor(hasAttemptedLogin && !isEmailValid ? Color.red :  Color.black ))
+                        
+                        HStack {
+                            Image(systemName: "lock")
+                            SecureField("Password", text: $password)
+                                .foregroundColor(.black)
+                            Image(systemName: isPasswordValid ? "checkmark.circle.fill" : "xmark.circle.fill")
+                                .foregroundColor(isPasswordValid ? .green : .red)
+                                .opacity(password.isEmpty ? 0 : 1) // Hide image when the field is empty
+                        }
+                        .padding()
+                        .overlay(RoundedRectangle(cornerRadius: 10).stroke(lineWidth: 2).foregroundColor(hasAttemptedLogin && !isPasswordValid  ? Color.red :  Color.black ))
+                        
+                        Button("Login", action: {
+                            if isLoginButtonDisabled{
+                                hasAttemptedLogin = true
+                            }else{
+                                naviGateDashBoard = true
+                            }
+                        })
+                        .foregroundColor(.black)
+                        .font(.headline)
+                        .frame(height: 46)
+                        .frame(maxWidth: .infinity)
+                        .overlay(
+                            RoundedRectangle(cornerRadius: 8)
+                                .stroke(Color.black, lineWidth: 2)
+                        )
+                      
+                    }
+                   
+                    
+                    Spacer()
+                    
+                    NavigationLink(destination: HomeTabBarView(), isActive: $naviGateDashBoard) {
+                        EmptyView()
+                    }
+                    .navigationBarBackButtonHidden()
+                    
+                    Button("Create new account", action: {
+                        // Implement account creation logic here
+                    })
+                    .foregroundColor(.black)
+                    .font(.headline)
+                    .frame(height: 46)
+                    .frame(maxWidth: .infinity)
+                    .overlay(
+                        RoundedRectangle(cornerRadius: 8)
+                            .stroke(Color.black, lineWidth: 2)
+                    )
+                }
+                .padding()
+            }
+            .navigationBarHidden(true)
+            .navigationBarBackButtonHidden()
+        }
+    }
+}
 
 struct LogInLogOutScreenView_Previews: PreviewProvider {
     static var previews: some View {

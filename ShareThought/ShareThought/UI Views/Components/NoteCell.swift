@@ -14,14 +14,13 @@ struct NoteCell: View {
     
     var body: some View {
         VStack {
-            
             VStack{
                 HStack{
                     Text(titleText)
                     Spacer()
                 }
                 HStack{
-                    Text("\(dateText.formatted(date: .abbreviated, time: .shortened))")
+                    Text("\(dateText.toString())")
                     Spacer()
                 }
             }

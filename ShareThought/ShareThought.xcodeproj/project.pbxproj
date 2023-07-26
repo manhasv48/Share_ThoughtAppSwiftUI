@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CA02AB912A6D41D90002D6F4 /* extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA02AB902A6D41D90002D6F4 /* extensions.swift */; };
 		CA212BFC2A6BF47F00C313BB /* APIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA212BFB2A6BF47F00C313BB /* APIError.swift */; };
 		CA212C022A6C000300C313BB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CA212C012A6C000300C313BB /* LaunchScreen.storyboard */; };
 		CA212C052A6C041500C313BB /* LaunchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA212C042A6C041500C313BB /* LaunchView.swift */; };
@@ -33,6 +34,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		CA02AB902A6D41D90002D6F4 /* extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = extensions.swift; sourceTree = "<group>"; };
 		CA212BFB2A6BF47F00C313BB /* APIError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIError.swift; sourceTree = "<group>"; };
 		CA212C012A6C000300C313BB /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CA212C042A6C041500C313BB /* LaunchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchView.swift; sourceTree = "<group>"; };
@@ -70,6 +72,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		CA02AB8F2A6D41BC0002D6F4 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				CA02AB902A6D41D90002D6F4 /* extensions.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		CA212BFA2A6BF24600C313BB /* Networking */ = {
 			isa = PBXGroup;
 			children = (
@@ -81,7 +91,9 @@
 		CA780D8E2A6C4031000C0C53 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				CA86EC422A48A5D20088A5D0 /* HomeTabBarView.swift */,
 				CA780D8F2A6C404C000C0C53 /* LoadingView.swift */,
+				CA212C042A6C041500C313BB /* LaunchView.swift */,
 				CA780D912A6C405E000C0C53 /* ErrorView.swift */,
 			);
 			path = Views;
@@ -106,8 +118,8 @@
 		CA86EC3F2A48A5D20088A5D0 /* ShareThought */ = {
 			isa = PBXGroup;
 			children = (
+				CA02AB8F2A6D41BC0002D6F4 /* Extensions */,
 				CA86EC402A48A5D20088A5D0 /* ShareThoughtApp.swift */,
-				CA212C042A6C041500C313BB /* LaunchView.swift */,
 				CADF61662A514FD700FF94A0 /* UI Views */,
 				CA8935362A4E85FE00D6124D /* Data Model */,
 				CACD253A2A52BB8B00C52931 /* Model */,
@@ -151,7 +163,6 @@
 			isa = PBXGroup;
 			children = (
 				CA780D8E2A6C4031000C0C53 /* Views */,
-				CA86EC422A48A5D20088A5D0 /* HomeTabBarView.swift */,
 				CADF61672A51500100FF94A0 /* Screens */,
 				CADF61682A51506900FF94A0 /* Components */,
 			);
@@ -253,6 +264,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CA86EC512A48A6420088A5D0 /* EditProfile.swift in Sources */,
+				CA02AB912A6D41D90002D6F4 /* extensions.swift in Sources */,
 				CA86EC432A48A5D20088A5D0 /* HomeTabBarView.swift in Sources */,
 				CA780D922A6C405E000C0C53 /* ErrorView.swift in Sources */,
 				CA8935382A4E862E00D6124D /* DummyData.swift in Sources */,

@@ -35,6 +35,7 @@ struct ThoughtsViewUI: View {
                     ErrorView(viewModel:ThoughtsViewModel())
                 }
             }
+            .navigationBarBackButtonHidden()
             .navigationBarTitle("Thoughts")
             .navigationBarItems(
                 leading: HStack {
@@ -55,11 +56,9 @@ struct ThoughtsViewUI: View {
                             secondaryButton: .cancel(Text("No"))
                         )
                     }
-                    .background(
                         NavigationLink(destination: LogInLogOutScreenView(), isActive: $viewModel.shouldNavigateToLogout) {
                             EmptyView()
                         }
-                    )
                 },
                 trailing: HStack {
                     Button(action: {
@@ -72,6 +71,8 @@ struct ThoughtsViewUI: View {
                 }
             )
         }
+        
+        .navigationBarBackButtonHidden()
         .preferredColorScheme(viewModel.isDarkMode ? .dark : .light)
     }
 }

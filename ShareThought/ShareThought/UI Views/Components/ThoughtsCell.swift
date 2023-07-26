@@ -35,41 +35,6 @@ struct ThoughtsCell: View {
                         .foregroundColor(textColor ? .white : .black)
                     Spacer()
                 }
-                
-                HStack {
-                    Button(action: {
-                        print("Clicked on Like")
-                    }) {
-                        Image(systemName: "heart.fill")
-                            .resizable()
-                            .frame(width: 20, height: 20)
-                            .foregroundColor(.black) // Set tint color to black
-                    }
-                    .buttonStyle(PlainButtonStyle())
-                   
-                    
-                    Button(action: {
-                        print("Clicked on Comment")
-                    }) {
-                        Image(systemName: "message.fill")
-                            .resizable()
-                            .frame(width: 20, height: 20)
-                            .foregroundColor(.black) // Set tint color to black
-                    }
-                    .buttonStyle(PlainButtonStyle())
-                   
-                    
-                    Button(action: {
-                        print("Clicked on Share")
-                    }) {
-                        Image(systemName: "arrowshape.turn.up.forward.circle.fill")
-                            .resizable()
-                            .frame(width: 20, height: 20)
-                            .foregroundColor(.black) // Set tint color to black
-                    }
-                    .buttonStyle(PlainButtonStyle())
-                    Spacer()
-                }
             }.padding(.trailing,20)
                 .padding(.leading,20)
         

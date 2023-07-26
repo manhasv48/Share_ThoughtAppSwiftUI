@@ -13,9 +13,13 @@ struct ViewSavedNotes: View {
     @EnvironmentObject private var viewModel:CreateNoteViewModel
     
     var body: some View {
-        List {
-            NavigationLink(destination: ShowNotes()) {
-                NoteCell(titleText: $viewModel.title, dateText: $viewModel.date)
+        NavigationStack{
+            List {
+                NavigationLink(destination: ShowNotes()) {
+                    NoteCell(titleText: $viewModel.title, dateText: $viewModel.date)
+                    
+                }
+                .navigationBarHidden(true)
             }
         }
     }

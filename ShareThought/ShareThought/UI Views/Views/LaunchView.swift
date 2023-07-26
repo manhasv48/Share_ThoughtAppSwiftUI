@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct LaunchView: View {
-    @State private var loadingText:[String] = "Loading ...".map{String($0)}
+    @State private var loadingText:[String] = "Thoughts...".map{String($0)}
     @State  private var showloading:Bool = false
     let timer = Timer.publish(every: 0.1, on: .main, in: .common).autoconnect()
     
@@ -32,6 +32,7 @@ struct LaunchView: View {
                             Text(loadingText[index])
                                 .font(.headline)
                                 .fontWeight(.heavy)
+                                .fontDesign(.monospaced)
                                 .foregroundColor(.white)
                                 .offset(y:counter == index ? -5 : 0)
                             
