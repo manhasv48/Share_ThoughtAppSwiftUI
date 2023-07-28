@@ -10,22 +10,25 @@ import SwiftUI
 struct ThoughtsViewUI: View {
     
     @ObservedObject private var viewModel = ThoughtsViewModel()
-
+    @State var onItemClick:Bool = false
+    @State var image:UIImage?
     var body: some View {
-        NavigationView {
+
             Group {
                 if let dummyData = viewModel.dummyData, dummyData.dummyData.count == dummyData.image.count && dummyData.dummyData.count == dummyData.names.count && dummyData.dummyData.count == dummyData.id.count{
                     List {
+                      
                         ForEach(dummyData.dummyData.indices, id: \.self) { index in
                             let thoughtText = dummyData.dummyData[index]
                             let imageName = dummyData.image[index]
                             let name = dummyData.names[index]
+                            
                             ThoughtsCell(dummyText: thoughtText, imageName: imageName, name: name, textColor: viewModel.isDarkMode)
                                 .padding(.vertical, 16)
-                        }
-                        .contentShape(Rectangle()) // Set the cell's content shape
-                        .onTapGesture {
-                            // Handle cell tap here
+                                .onTapGesture{
+                                    onItemClick = true
+                                    print(onItemClick)
+                                }
                         }
                         .listRowInsets(EdgeInsets()) // Remove the padding and trailing spacing
                         .listRowSeparatorTint(.clear)
@@ -33,6 +36,9 @@ struct ThoughtsViewUI: View {
                     .listStyle(PlainListStyle()) // Remove the grouping style
                 } else {
                     ErrorView(viewModel:ThoughtsViewModel())
+                }
+                NavigationLink(destination: HideImageView(selectedImages: self.image ?? UIImage() ), isActive:$onItemClick) {
+                    EmptyView()
                 }
             }
             .navigationBarBackButtonHidden()
@@ -46,6 +52,11 @@ struct ThoughtsViewUI: View {
                             .imageScale(.large)
                             .foregroundColor(viewModel.isDarkMode ? .white : .black)
                     }
+                    .background(
+                        NavigationLink(destination: LogInLogOutScreenView(), isActive: $viewModel.shouldNavigateToLogout) {
+                            EmptyView()
+                        }
+                        )
                     .alert(isPresented: $viewModel.showAlert) {
                         Alert(
                             title: Text("Confirm Logout"),
@@ -56,9 +67,6 @@ struct ThoughtsViewUI: View {
                             secondaryButton: .cancel(Text("No"))
                         )
                     }
-                        NavigationLink(destination: LogInLogOutScreenView(), isActive: $viewModel.shouldNavigateToLogout) {
-                            EmptyView()
-                        }
                 },
                 trailing: HStack {
                     Button(action: {
@@ -70,9 +78,6 @@ struct ThoughtsViewUI: View {
                     }
                 }
             )
-        }
-        
-        .navigationBarBackButtonHidden()
         .preferredColorScheme(viewModel.isDarkMode ? .dark : .light)
     }
 }

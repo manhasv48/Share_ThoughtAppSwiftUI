@@ -15,6 +15,8 @@
 		CA30BA892A532A2300BB16C4 /* NoteCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA30BA882A532A2300BB16C4 /* NoteCell.swift */; };
 		CA30BA8B2A532AC400BB16C4 /* ShowNotes.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA30BA8A2A532AC400BB16C4 /* ShowNotes.swift */; };
 		CA6C35232A50863F00ECD9DA /* CreateNoteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA6C35222A50863F00ECD9DA /* CreateNoteView.swift */; };
+		CA7719432A73FFCD00657D92 /* HideImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA7719422A73FFCD00657D92 /* HideImageView.swift */; };
+		CA7719452A74004300657D92 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA7719442A74004300657D92 /* ImagePicker.swift */; };
 		CA780D902A6C404C000C0C53 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA780D8F2A6C404C000C0C53 /* LoadingView.swift */; };
 		CA780D922A6C405E000C0C53 /* ErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA780D912A6C405E000C0C53 /* ErrorView.swift */; };
 		CA86EC412A48A5D20088A5D0 /* ShareThoughtApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA86EC402A48A5D20088A5D0 /* ShareThoughtApp.swift */; };
@@ -42,6 +44,8 @@
 		CA30BA882A532A2300BB16C4 /* NoteCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteCell.swift; sourceTree = "<group>"; };
 		CA30BA8A2A532AC400BB16C4 /* ShowNotes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowNotes.swift; sourceTree = "<group>"; };
 		CA6C35222A50863F00ECD9DA /* CreateNoteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateNoteView.swift; sourceTree = "<group>"; };
+		CA7719422A73FFCD00657D92 /* HideImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HideImageView.swift; sourceTree = "<group>"; };
+		CA7719442A74004300657D92 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		CA780D8F2A6C404C000C0C53 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 		CA780D912A6C405E000C0C53 /* ErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorView.swift; sourceTree = "<group>"; };
 		CA86EC3D2A48A5D20088A5D0 /* ShareThought.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ShareThought.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -76,6 +80,7 @@
 			isa = PBXGroup;
 			children = (
 				CA02AB902A6D41D90002D6F4 /* extensions.swift */,
+				CA7719442A74004300657D92 /* ImagePicker.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -86,6 +91,43 @@
 				CA212BFB2A6BF47F00C313BB /* APIError.swift */,
 			);
 			path = Networking;
+			sourceTree = "<group>";
+		};
+		CA77193E2A73FEF300657D92 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				CA86EC4E2A48A6120088A5D0 /* ThoughtsViewUI.swift */,
+				CA6C35222A50863F00ECD9DA /* CreateNoteView.swift */,
+				CA8935412A4EFACB00D6124D /* LogInLogOutScreenView.swift */,
+				CA86EC502A48A6420088A5D0 /* EditProfile.swift */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		CA77193F2A73FF0400657D92 /* Internal Screens */ = {
+			isa = PBXGroup;
+			children = (
+				CA7719412A73FF8000657D92 /* SaveImageViewScreens */,
+				CA7719402A73FF4200657D92 /* CreateNoteScreens */,
+			);
+			path = "Internal Screens";
+			sourceTree = "<group>";
+		};
+		CA7719402A73FF4200657D92 /* CreateNoteScreens */ = {
+			isa = PBXGroup;
+			children = (
+				CA30BA862A531BF700BB16C4 /* ViewSavedNotes.swift */,
+				CA30BA8A2A532AC400BB16C4 /* ShowNotes.swift */,
+			);
+			path = CreateNoteScreens;
+			sourceTree = "<group>";
+		};
+		CA7719412A73FF8000657D92 /* SaveImageViewScreens */ = {
+			isa = PBXGroup;
+			children = (
+				CA7719422A73FFCD00657D92 /* HideImageView.swift */,
+			);
+			path = SaveImageViewScreens;
 			sourceTree = "<group>";
 		};
 		CA780D8E2A6C4031000C0C53 /* Views */ = {
@@ -118,13 +160,13 @@
 		CA86EC3F2A48A5D20088A5D0 /* ShareThought */ = {
 			isa = PBXGroup;
 			children = (
-				CA02AB8F2A6D41BC0002D6F4 /* Extensions */,
 				CA86EC402A48A5D20088A5D0 /* ShareThoughtApp.swift */,
 				CADF61662A514FD700FF94A0 /* UI Views */,
 				CA8935362A4E85FE00D6124D /* Data Model */,
 				CACD253A2A52BB8B00C52931 /* Model */,
 				CA212BFA2A6BF24600C313BB /* Networking */,
 				CADF61652A514F7200FF94A0 /* Resources */,
+				CA02AB8F2A6D41BC0002D6F4 /* Extensions */,
 			);
 			path = ShareThought;
 			sourceTree = "<group>";
@@ -172,12 +214,8 @@
 		CADF61672A51500100FF94A0 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
-				CA86EC4E2A48A6120088A5D0 /* ThoughtsViewUI.swift */,
-				CA6C35222A50863F00ECD9DA /* CreateNoteView.swift */,
-				CA8935412A4EFACB00D6124D /* LogInLogOutScreenView.swift */,
-				CA86EC502A48A6420088A5D0 /* EditProfile.swift */,
-				CA30BA862A531BF700BB16C4 /* ViewSavedNotes.swift */,
-				CA30BA8A2A532AC400BB16C4 /* ShowNotes.swift */,
+				CA77193F2A73FF0400657D92 /* Internal Screens */,
+				CA77193E2A73FEF300657D92 /* UI */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -270,6 +308,7 @@
 				CA8935382A4E862E00D6124D /* DummyData.swift in Sources */,
 				CADF616A2A5150FC00FF94A0 /* ThoughtsCell.swift in Sources */,
 				CA30BA872A531BF700BB16C4 /* ViewSavedNotes.swift in Sources */,
+				CA7719452A74004300657D92 /* ImagePicker.swift in Sources */,
 				CA212C052A6C041500C313BB /* LaunchView.swift in Sources */,
 				CA30BA892A532A2300BB16C4 /* NoteCell.swift in Sources */,
 				CACD253C2A52BBE300C52931 /* ThoughtsViewModel.swift in Sources */,
@@ -277,6 +316,7 @@
 				CA6C35232A50863F00ECD9DA /* CreateNoteView.swift in Sources */,
 				CA8935422A4EFACB00D6124D /* LogInLogOutScreenView.swift in Sources */,
 				CA89353D2A4EA42C00D6124D /* ThoughtsViewUI.swift in Sources */,
+				CA7719432A73FFCD00657D92 /* HideImageView.swift in Sources */,
 				CA86EC412A48A5D20088A5D0 /* ShareThoughtApp.swift in Sources */,
 				CACD253E2A52C74400C52931 /* CreateNoteViewModel.swift in Sources */,
 				CA212BFC2A6BF47F00C313BB /* APIError.swift in Sources */,
