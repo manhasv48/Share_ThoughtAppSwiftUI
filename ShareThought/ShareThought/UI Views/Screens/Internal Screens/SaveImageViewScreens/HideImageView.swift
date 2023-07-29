@@ -12,64 +12,85 @@ struct HideImageView: View {
     @State  var selectedImages: UIImage
     @State private var showGallery:Bool = false
     var body: some View {
-        
             ZStack {
-                VStack {
-                    Image(uiImage: selectedImages ?? UIImage())
-                        .resizable()
-                        .frame(width: 75, height: 75)
+                VStack{
                     Button(action: {
-                        isPopupVisible = true
-                    }) {
-                        Text("Choose Images")
+                        
+                    }){
+                        Text("View Saved Image")
+                            .foregroundColor(Color.black)
+                            .frame(maxWidth: .infinity)
+                            .frame(height: 30)
+                            .overlay(
+                                RoundedRectangle(cornerRadius: 8)
+                                    .stroke(Color.black, lineWidth: 2)
+                            )
+                        
+                    }.padding()
+                    VStack {
+                        Text("Upload Your Images").padding(.top)
+                            .font(.largeTitle)
+                        Text("PNG,JGG files are allowed")
+                            .foregroundColor(Color.textColor1)
+                        VStack {
+
+                            Image("upload_images")
+                                .resizable()
+                                .frame(width: 65,height:65)
+                                .onTapGesture{
+                                    isPopupVisible = true
+                                }
+                                .padding(.top)
+                            
+                            Button(action: {
+                                isPopupVisible = true
+                            }) {
+                                Text("Browse to Choose a Images")
+                                    .foregroundColor(Color.textColor1)
+                            }.padding(.bottom
+                            )
+                            
+                        }.frame(maxWidth: .infinity)
+                            .background(Color.backGround1)
+                            .cornerRadius(12)
+                            .padding()
                     }
-                }
-
-                if isPopupVisible {
-                    popupView()
-                        .transition(.identity) // You can apply a custom transition
-                        .animation(.easeInOut(duration: 2.3)) // Animation for the popup appearance
+                    .frame(maxWidth: .infinity)
+                        .background(Color.backGround)
+                        .cornerRadius(12)
+                        .padding()
+                    Spacer()
                 }
             }
+            .actionSheet(isPresented: $isPopupVisible) {
+                ActionSheet(
+                    title: Text("Select an Image"),
+                    message: Text(""),
+                    buttons: [
+                        .default(Text("Select from Gallery")) {
+                            showingType = .gallery /// 3.
+                        },
+                        .default(Text("Take new picture")) {
+                            showingType = .picture /// 3.
+                        },
+                        .cancel()
+                    ]
+                )
+            }
+.sheet(item: $showingType, content: { type in
+if type == .gallery {
+    ImagePicker(sourceType: .photoLibrary, showingType: $showingType, image: $selectedImages)
+} else {
+    ImagePicker(sourceType: .camera, showingType: $showingType, image: $selectedImages)
+}
+})
         
-    }
-
-    private func popupView() -> some View {
-        VStack {
-            NavigationLink(destination: ImagePicker(showingType:$showingType , image: $selectedImages), isActive:$showGallery ){
-                EmptyView()
-            }
-            .navigationBarBackButtonHidden()
-            .hidden()
-            Button(action: {
-                showingType = .gallery
-                showGallery = true
-            }) {
-                Text("Select from Gallery")
-            }
-               
-            Divider()
-
-            Button(action: {
-                showingType = .picture
-                showGallery = true
-            }) {
-                Text("Take new picture")
-            }
-              
-            Divider()
-
-            Button(action: {
-                isPopupVisible = false
-            }) {
-                Text("Cancel")
-            }
-        }
-        .padding()
-        .background(Color.white)
-        .cornerRadius(10)
-        .shadow(radius: 5)
-        .padding(EdgeInsets(top: 0, leading: 40, bottom: 0, trailing: 40))
     }
 }
 
+
+struct HideImageView_Previews: PreviewProvider {
+    static var previews: some View {
+        HideImageView(selectedImages: UIImage())
+    }
+}

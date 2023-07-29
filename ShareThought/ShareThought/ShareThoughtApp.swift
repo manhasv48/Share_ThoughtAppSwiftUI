@@ -13,12 +13,7 @@ struct ShareThoughtApp: App {
     var body: some Scene {
         WindowGroup {
             ZStack{
-                NavigationView{
                     LogInLogOutScreenView()
-                }
-                .navigationBarBackButtonHidden()
-                .navigationBarHidden(true)
-                  
                     ZStack{
                         if showlaunchview{
                             LaunchView(showLaunchview: $showlaunchview)

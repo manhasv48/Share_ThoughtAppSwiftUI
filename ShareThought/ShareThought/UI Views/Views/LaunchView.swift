@@ -32,7 +32,7 @@ struct LaunchView: View {
                             Text(loadingText[index])
                                 .font(.headline)
                                 .fontWeight(.heavy)
-                                .fontDesign(.monospaced)
+                               
                                 .foregroundColor(.white)
                                 .offset(y:counter == index ? -5 : 0)
                             

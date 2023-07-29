@@ -13,11 +13,11 @@ struct ThoughtsViewUI: View {
     @State var onItemClick:Bool = false
     @State var image:UIImage?
     var body: some View {
-
+        NavigationView{
             Group {
                 if let dummyData = viewModel.dummyData, dummyData.dummyData.count == dummyData.image.count && dummyData.dummyData.count == dummyData.names.count && dummyData.dummyData.count == dummyData.id.count{
                     List {
-                      
+                        
                         ForEach(dummyData.dummyData.indices, id: \.self) { index in
                             let thoughtText = dummyData.dummyData[index]
                             let imageName = dummyData.image[index]
@@ -56,7 +56,7 @@ struct ThoughtsViewUI: View {
                         NavigationLink(destination: LogInLogOutScreenView(), isActive: $viewModel.shouldNavigateToLogout) {
                             EmptyView()
                         }
-                        )
+                    )
                     .alert(isPresented: $viewModel.showAlert) {
                         Alert(
                             title: Text("Confirm Logout"),
@@ -78,10 +78,10 @@ struct ThoughtsViewUI: View {
                     }
                 }
             )
-        .preferredColorScheme(viewModel.isDarkMode ? .dark : .light)
+            .preferredColorScheme(viewModel.isDarkMode ? .dark : .light)
+        }
     }
 }
-
 struct ThoughtsViewUI_Previews: PreviewProvider {
     static var previews: some View {
         ThoughtsViewUI()

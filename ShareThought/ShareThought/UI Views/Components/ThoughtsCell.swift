@@ -25,13 +25,13 @@ struct ThoughtsCell: View {
                 HStack {
                     Text(name)
                         .foregroundColor(.purple)
-                        .fontDesign(.monospaced)
+                        
                     Spacer()
                 }
                 HStack {
                     Text(dummyText)
                         .font(.caption)
-                        .fontDesign(.serif)
+                       
                         .foregroundColor(textColor ? .white : .black)
                     Spacer()
                 }
