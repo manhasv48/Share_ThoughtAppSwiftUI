@@ -11,7 +11,6 @@ struct ThoughtsViewUI: View {
     
     @ObservedObject private var viewModel = ThoughtsViewModel()
     @State var onItemClick:Bool = false
-    @State var image:UIImage?
     var body: some View {
         NavigationView{
             Group {
@@ -37,7 +36,7 @@ struct ThoughtsViewUI: View {
                 } else {
                     ErrorView(viewModel:ThoughtsViewModel())
                 }
-                NavigationLink(destination: HideImageView(selectedImages: self.image ?? UIImage() ), isActive:$onItemClick) {
+                NavigationLink(destination: HideImageView(), isActive:$onItemClick) {
                     EmptyView()
                 }
             }

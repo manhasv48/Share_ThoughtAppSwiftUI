@@ -15,6 +15,7 @@
 		CA30BA892A532A2300BB16C4 /* NoteCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA30BA882A532A2300BB16C4 /* NoteCell.swift */; };
 		CA30BA8B2A532AC400BB16C4 /* ShowNotes.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA30BA8A2A532AC400BB16C4 /* ShowNotes.swift */; };
 		CA3785DF2A75424500B151ED /* Color Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA3785DE2A75424500B151ED /* Color Extension.swift */; };
+		CA3785E12A754C6300B151ED /* ImageGalleryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA3785E02A754C6300B151ED /* ImageGalleryView.swift */; };
 		CA6C35232A50863F00ECD9DA /* CreateNoteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA6C35222A50863F00ECD9DA /* CreateNoteView.swift */; };
 		CA7719432A73FFCD00657D92 /* HideImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA7719422A73FFCD00657D92 /* HideImageView.swift */; };
 		CA7719452A74004300657D92 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA7719442A74004300657D92 /* ImagePicker.swift */; };
@@ -30,6 +31,8 @@
 		CA89353D2A4EA42C00D6124D /* ThoughtsViewUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA86EC4E2A48A6120088A5D0 /* ThoughtsViewUI.swift */; };
 		CA8935402A4EA49100D6124D /* JsonFile.json in Resources */ = {isa = PBXBuildFile; fileRef = CA89353F2A4EA49100D6124D /* JsonFile.json */; };
 		CA8935422A4EFACB00D6124D /* LogInLogOutScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA8935412A4EFACB00D6124D /* LogInLogOutScreenView.swift */; };
+		CAC70EA12A7621F5001A1084 /* SwiftUIPhotoPickerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAC70EA02A7621F5001A1084 /* SwiftUIPhotoPickerViewModel.swift */; };
+		CAC70EA32A762287001A1084 /* UIKitPhotoPickerVIewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAC70EA22A762287001A1084 /* UIKitPhotoPickerVIewModel.swift */; };
 		CACD253C2A52BBE300C52931 /* ThoughtsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CACD253B2A52BBE300C52931 /* ThoughtsViewModel.swift */; };
 		CACD253E2A52C74400C52931 /* CreateNoteViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CACD253D2A52C74400C52931 /* CreateNoteViewModel.swift */; };
 		CACD25402A52C77B00C52931 /* Note.swift in Sources */ = {isa = PBXBuildFile; fileRef = CACD253F2A52C77B00C52931 /* Note.swift */; };
@@ -45,6 +48,7 @@
 		CA30BA882A532A2300BB16C4 /* NoteCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteCell.swift; sourceTree = "<group>"; };
 		CA30BA8A2A532AC400BB16C4 /* ShowNotes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowNotes.swift; sourceTree = "<group>"; };
 		CA3785DE2A75424500B151ED /* Color Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color Extension.swift"; sourceTree = "<group>"; };
+		CA3785E02A754C6300B151ED /* ImageGalleryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageGalleryView.swift; sourceTree = "<group>"; };
 		CA6C35222A50863F00ECD9DA /* CreateNoteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateNoteView.swift; sourceTree = "<group>"; };
 		CA7719422A73FFCD00657D92 /* HideImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HideImageView.swift; sourceTree = "<group>"; };
 		CA7719442A74004300657D92 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
@@ -61,6 +65,8 @@
 		CA8935372A4E862E00D6124D /* DummyData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DummyData.swift; sourceTree = "<group>"; };
 		CA89353F2A4EA49100D6124D /* JsonFile.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = JsonFile.json; sourceTree = "<group>"; };
 		CA8935412A4EFACB00D6124D /* LogInLogOutScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInLogOutScreenView.swift; sourceTree = "<group>"; };
+		CAC70EA02A7621F5001A1084 /* SwiftUIPhotoPickerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIPhotoPickerViewModel.swift; sourceTree = "<group>"; };
+		CAC70EA22A762287001A1084 /* UIKitPhotoPickerVIewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIKitPhotoPickerVIewModel.swift; sourceTree = "<group>"; };
 		CACD253B2A52BBE300C52931 /* ThoughtsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThoughtsViewModel.swift; sourceTree = "<group>"; };
 		CACD253D2A52C74400C52931 /* CreateNoteViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateNoteViewModel.swift; sourceTree = "<group>"; };
 		CACD253F2A52C77B00C52931 /* Note.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Note.swift; sourceTree = "<group>"; };
@@ -129,6 +135,7 @@
 			isa = PBXGroup;
 			children = (
 				CA7719422A73FFCD00657D92 /* HideImageView.swift */,
+				CA3785E02A754C6300B151ED /* ImageGalleryView.swift */,
 			);
 			path = SaveImageViewScreens;
 			sourceTree = "<group>";
@@ -177,11 +184,21 @@
 		CA8935362A4E85FE00D6124D /* Data Model */ = {
 			isa = PBXGroup;
 			children = (
+				CAC70E9F2A7621C5001A1084 /* Load Images */,
 				CA86EC522A48A7740088A5D0 /* TabBarItems.swift */,
 				CACD253B2A52BBE300C52931 /* ThoughtsViewModel.swift */,
 				CACD253D2A52C74400C52931 /* CreateNoteViewModel.swift */,
 			);
 			path = "Data Model";
+			sourceTree = "<group>";
+		};
+		CAC70E9F2A7621C5001A1084 /* Load Images */ = {
+			isa = PBXGroup;
+			children = (
+				CAC70EA02A7621F5001A1084 /* SwiftUIPhotoPickerViewModel.swift */,
+				CAC70EA22A762287001A1084 /* UIKitPhotoPickerVIewModel.swift */,
+			);
+			path = "Load Images";
 			sourceTree = "<group>";
 		};
 		CACD253A2A52BB8B00C52931 /* Model */ = {
@@ -306,7 +323,9 @@
 			files = (
 				CA86EC512A48A6420088A5D0 /* EditProfile.swift in Sources */,
 				CA02AB912A6D41D90002D6F4 /* extensions.swift in Sources */,
+				CAC70EA32A762287001A1084 /* UIKitPhotoPickerVIewModel.swift in Sources */,
 				CA3785DF2A75424500B151ED /* Color Extension.swift in Sources */,
+				CAC70EA12A7621F5001A1084 /* SwiftUIPhotoPickerViewModel.swift in Sources */,
 				CA86EC432A48A5D20088A5D0 /* HomeTabBarView.swift in Sources */,
 				CA780D922A6C405E000C0C53 /* ErrorView.swift in Sources */,
 				CA8935382A4E862E00D6124D /* DummyData.swift in Sources */,
@@ -319,6 +338,7 @@
 				CA86EC532A48A7740088A5D0 /* TabBarItems.swift in Sources */,
 				CA6C35232A50863F00ECD9DA /* CreateNoteView.swift in Sources */,
 				CA8935422A4EFACB00D6124D /* LogInLogOutScreenView.swift in Sources */,
+				CA3785E12A754C6300B151ED /* ImageGalleryView.swift in Sources */,
 				CA89353D2A4EA42C00D6124D /* ThoughtsViewUI.swift in Sources */,
 				CA7719432A73FFCD00657D92 /* HideImageView.swift in Sources */,
 				CA86EC412A48A5D20088A5D0 /* ShareThoughtApp.swift in Sources */,

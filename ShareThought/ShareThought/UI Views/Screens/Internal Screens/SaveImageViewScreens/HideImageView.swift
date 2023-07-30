@@ -7,15 +7,20 @@
 
 import SwiftUI
 struct HideImageView: View {
+    @ObservedObject private var viewModel = UIKitPhotoPickerViewModel()
     @State private var showingType: PhotoSheetType?
     @State private var isPopupVisible = false
-    @State  var selectedImages: UIImage
     @State private var showGallery:Bool = false
+    @State private var savedImageGallery:Bool = false
+    @State private var url:[URL] = []
     var body: some View {
             ZStack {
                 VStack{
+                    NavigationLink(destination: ImageGalleryView(), isActive: $savedImageGallery) {
+                        EmptyView()
+                    }
                     Button(action: {
-                        
+                        savedImageGallery = true
                     }){
                         Text("View Saved Image")
                             .foregroundColor(Color.black)
@@ -33,7 +38,7 @@ struct HideImageView: View {
                         Text("PNG,JGG files are allowed")
                             .foregroundColor(Color.textColor1)
                         VStack {
-
+                            
                             Image("upload_images")
                                 .resizable()
                                 .frame(width: 65,height:65)
@@ -49,17 +54,25 @@ struct HideImageView: View {
                                     .foregroundColor(Color.textColor1)
                             }.padding(.bottom
                             )
+
                             
                         }.frame(maxWidth: .infinity)
                             .background(Color.backGround1)
                             .cornerRadius(12)
                             .padding()
+                        if !viewModel.selectedImages.isEmpty{
+                                VStack() {
+                                        ProgressBar(progress: 1.0)
+                                        .frame(height: 45)
+                                } .padding()
+                        }
                     }
                     .frame(maxWidth: .infinity)
                         .background(Color.backGround)
                         .cornerRadius(12)
                         .padding()
                     Spacer()
+                   
                 }
             }
             .actionSheet(isPresented: $isPopupVisible) {
@@ -79,18 +92,35 @@ struct HideImageView: View {
             }
 .sheet(item: $showingType, content: { type in
 if type == .gallery {
-    ImagePicker(sourceType: .photoLibrary, showingType: $showingType, image: $selectedImages)
+    MultipleImagePicker(showingType: $showingType, selectedImages: $viewModel.selectedImages )
 } else {
-    ImagePicker(sourceType: .camera, showingType: $showingType, image: $selectedImages)
+    ImagePicker(sourceType: .camera, showingType: $showingType, image:$viewModel.selectedImage  )
 }
 })
-        
     }
 }
 
 
 struct HideImageView_Previews: PreviewProvider {
     static var previews: some View {
-        HideImageView(selectedImages: UIImage())
+        HideImageView()
+    }
+}
+
+struct ProgressBar: View {
+    let progress: CGFloat
+    var body: some View {
+        GeometryReader { geometry in
+            ZStack(alignment: .leading) {
+                Rectangle()
+                    .foregroundColor(Color.gray)
+                    .frame(width: geometry.size.width, height: 40)
+                    .cornerRadius(12)
+                Rectangle()
+                    .foregroundColor(Color.blue)
+                    .frame(width: geometry.size.width * min(self.progress, 1.0), height: 40)
+                    .cornerRadius(12)
+            }
+        }
     }
 }
