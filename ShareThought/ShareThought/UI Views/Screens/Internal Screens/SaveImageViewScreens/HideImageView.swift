@@ -19,19 +19,21 @@ struct HideImageView: View {
                     NavigationLink(destination: ImageGalleryView(), isActive: $savedImageGallery) {
                         EmptyView()
                     }
-                    Button(action: {
-                        savedImageGallery = true
-                    }){
-                        Text("View Saved Image")
-                            .foregroundColor(Color.black)
-                            .frame(maxWidth: .infinity)
-                            .frame(height: 30)
-                            .overlay(
-                                RoundedRectangle(cornerRadius: 8)
-                                    .stroke(Color.black, lineWidth: 2)
-                            )
-                        
-                    }.padding()
+                    if !viewModel.selectedImages.isEmpty{
+                        Button(action: {
+                            savedImageGallery = true
+                        }){
+                            Text("View Saved Image")
+                                .foregroundColor(Color.black)
+                                .frame(maxWidth: .infinity)
+                                .frame(height: 30)
+                                .overlay(
+                                    RoundedRectangle(cornerRadius: 8)
+                                        .stroke(Color.black, lineWidth: 2)
+                                )
+                            
+                        }.padding()
+                    }
                     VStack {
                         Text("Upload Your Images").padding(.top)
                             .font(.largeTitle)
@@ -60,19 +62,29 @@ struct HideImageView: View {
                             .background(Color.backGround1)
                             .cornerRadius(12)
                             .padding()
-                        if !viewModel.selectedImages.isEmpty{
-                                VStack() {
+                            if !viewModel.selectedImages.isEmpty{
+                                VStack{
+                                    HStack{
+                                        Text("0 of \(viewModel.selectedImages.count) uploaded")
+                                            .foregroundColor(.textColor1)
+                                            .font(.subheadline)
+                                        Spacer()
+                                        Text("cancel")
+                                            .font(.subheadline)
+                                            .foregroundColor(.textColor1)
+                                    }.padding()
+                                    ForEach(viewModel.selectedImages, id: \.self) { image in
                                         ProgressBar(progress: 1.0)
-                                        .frame(height: 45)
-                                } .padding()
-                        }
-                    }
+                                            .frame(height: 45)
+                                        
+                                    }
+                                }.padding()
+                                }
+                            }
                     .frame(maxWidth: .infinity)
                         .background(Color.backGround)
                         .cornerRadius(12)
                         .padding()
-                    Spacer()
-                   
                 }
             }
             .actionSheet(isPresented: $isPopupVisible) {
