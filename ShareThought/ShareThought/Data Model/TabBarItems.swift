@@ -8,18 +8,18 @@
 
 enum TabbedItems: Int, CaseIterable{
     case home = 0
-    case note
-    case profile
+//    case note
+//    case profile
    
     
     var title: String{
         switch self {
         case .home:
             return "Home"
-        case .profile:
-            return "Profile"
-        case .note:
-            return "Note"
+//        case .profile:
+//            return "Profile"
+//        case .note:
+//            return "Note"
             
         }
     }
@@ -28,10 +28,10 @@ enum TabbedItems: Int, CaseIterable{
         switch self {
         case .home:
             return "icons8-home"
-        case .profile:
-            return "profile_icon"
-        case .note:
-            return "icons8-open-book-50"
+//        case .profile:
+//            return "profile_icon"
+//        case .note:
+//            return "icons8-open-book-50"
         }
     }
 }

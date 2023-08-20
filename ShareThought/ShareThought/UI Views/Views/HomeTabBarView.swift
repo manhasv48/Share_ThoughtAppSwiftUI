@@ -14,12 +14,10 @@ struct HomeTabBarView: View {
         NavigationView{
             ZStack(alignment: .bottom){
                 TabView(selection: $selectedTab) {
-                    ThoughtsViewUI()
+                    ContentView()
                         .tag(0)
-                    CreateNoteView()
-                        .tag(1)
-                    EditProfile()
-                        .tag(2)
+//                    EditProfile()
+//                        .tag(2)
                     
                 }
                 ZStack{

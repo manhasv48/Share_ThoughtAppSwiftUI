@@ -13,7 +13,7 @@ struct ShareThoughtApp: App {
     var body: some Scene {
         WindowGroup {
             ZStack{
-                    LogInLogOutScreenView()
+                    ContentView()
                     ZStack{
                         if showlaunchview{
                             LaunchView(showLaunchview: $showlaunchview)
