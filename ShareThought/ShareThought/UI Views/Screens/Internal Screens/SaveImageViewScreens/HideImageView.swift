@@ -14,78 +14,80 @@ struct HideImageView: View {
     @State private var savedImageGallery:Bool = false
     @State private var url:[URL] = []
     var body: some View {
-            ZStack {
-                VStack{
-                    NavigationLink(destination: ImageGalleryView(), isActive: $savedImageGallery) {
-                        EmptyView()
-                    }
-                    if !viewModel.selectedImages.isEmpty{
-                        Button(action: {
-                            savedImageGallery = true
-                        }){
-                            Text("View Saved Image")
-                                .foregroundColor(Color.black)
-                                .frame(maxWidth: .infinity)
-                                .frame(height: 30)
-                                .overlay(
-                                    RoundedRectangle(cornerRadius: 8)
-                                        .stroke(Color.black, lineWidth: 2)
-                                )
-                            
-                        }.padding()
-                    }
-                    VStack {
-                        Text("Upload Your Images").padding(.top)
-                            .font(.largeTitle)
-                        Text("PNG,JGG files are allowed")
-                            .foregroundColor(Color.textColor1)
-                        VStack {
-                            
-                            Image("upload_images")
-                                .resizable()
-                                .frame(width: 65,height:65)
-                                .onTapGesture{
-                                    isPopupVisible = true
-                                }
-                                .padding(.top)
-                            
-                            Button(action: {
-                                isPopupVisible = true
-                            }) {
-                                Text("Browse to Choose a Images")
-                                    .foregroundColor(Color.textColor1)
-                            }.padding(.bottom
+        ZStack {
+            ScrollView{
+            VStack{
+                NavigationLink(destination: ImageGalleryView(), isActive: $savedImageGallery) {
+                    EmptyView()
+                }
+                if !viewModel.selectedImages.isEmpty{
+                    Button(action: {
+                        savedImageGallery = true
+                    }){
+                        Text("View Saved Image")
+                            .foregroundColor(Color.black)
+                            .frame(maxWidth: .infinity)
+                            .frame(height: 30)
+                            .overlay(
+                                RoundedRectangle(cornerRadius: 8)
+                                    .stroke(Color.black, lineWidth: 2)
                             )
-
-                            
-                        }.frame(maxWidth: .infinity)
-                            .background(Color.backGround1)
-                            .cornerRadius(12)
-                            .padding()
-                            if !viewModel.selectedImages.isEmpty{
-                                VStack{
-                                    HStack{
-                                        Text("0 of \(viewModel.selectedImages.count) uploaded")
-                                            .foregroundColor(.textColor1)
-                                            .font(.subheadline)
-                                        Spacer()
-                                        Text("cancel")
-                                            .font(.subheadline)
-                                            .foregroundColor(.textColor1)
-                                    }.padding()
-                                    ForEach(viewModel.selectedImages, id: \.self) { image in
-                                        ProgressBar(progress: 1.0)
-                                            .frame(height: 45)
-                                        
-                                    }
-                                }.padding()
-                                }
+                        
+                    }.padding()
+                }
+                VStack {
+                    Text("Upload Your Images").padding(.top)
+                        .font(.largeTitle)
+                    Text("PNG,JGG files are allowed")
+                        .foregroundColor(Color.textColor1)
+                    VStack {
+                        
+                        Image("upload_images")
+                            .resizable()
+                            .frame(width: 65,height:65)
+                            .onTapGesture{
+                                isPopupVisible = true
                             }
-                    .frame(maxWidth: .infinity)
-                        .background(Color.backGround)
+                            .padding(.top)
+                        
+                        Button(action: {
+                            isPopupVisible = true
+                        }) {
+                            Text("Browse to Choose a Images")
+                                .foregroundColor(Color.textColor1)
+                        }.padding(.bottom
+                        )
+                        
+                        
+                    }.frame(maxWidth: .infinity)
+                        .background(Color.backGround1)
                         .cornerRadius(12)
                         .padding()
+                    if !viewModel.selectedImages.isEmpty{
+                        VStack{
+                            HStack{
+                                Text("0 of \(viewModel.selectedImages.count) uploaded")
+                                    .foregroundColor(.textColor1)
+                                    .font(.subheadline)
+                                Spacer()
+                                Text("cancel")
+                                    .font(.subheadline)
+                                    .foregroundColor(.textColor1)
+                            }.padding()
+                            ForEach(viewModel.selectedImages, id: \.self) { image in
+                                ProgressBar(progress: 1.0)
+                                    .frame(height: 45)
+                                
+                            }
+                        }.padding()
+                    }
                 }
+                .frame(maxWidth: .infinity)
+                .background(Color.backGround)
+                .cornerRadius(12)
+                .padding()
+            }
+        }
             }
             .actionSheet(isPresented: $isPopupVisible) {
                 ActionSheet(
@@ -93,10 +95,10 @@ struct HideImageView: View {
                     message: Text(""),
                     buttons: [
                         .default(Text("Select from Gallery")) {
-                            showingType = .gallery /// 3.
+                            showingType = .gallery
                         },
                         .default(Text("Take new picture")) {
-                            showingType = .picture /// 3.
+                            showingType = .picture 
                         },
                         .cancel()
                     ]
